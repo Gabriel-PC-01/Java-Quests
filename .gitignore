@@ -3,7 +3,11 @@
 
 # Log file
 *.log
-/target/
+
+# Maven
+target/
+.settings/
+.mvn/
 
 # BlueJ files
 *.ctxt
