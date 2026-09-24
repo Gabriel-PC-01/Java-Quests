@@ -5,6 +5,11 @@
 *.log
 *.png
 
+# Maven
+target/
+.settings/
+.mvn/
+
 # BlueJ files
 *.ctxt
 

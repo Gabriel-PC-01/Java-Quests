@@ -1,0 +1,53 @@
+@startuml
+
+    abstract class Entity{
+
+        final String type
+
+        getFields() : Map
+
+
+    }
+
+    enum EntityStatus{
+
+            EMPTY_STRING,
+            INVALID_NUMBER
+        }
+
+
+    entity Product{
+
+        final int quantity;
+        final String name;
+
+        setName(String name) : EntityStatus
+        setquantity(String quantity) : EntityStatus
+
+    }
+
+    entity Customer{
+
+        final String name;
+        final String email;
+
+        setName(String name) : EntityStatus
+        setEmail(String email) : EntityStatus
+
+    }
+
+    entity Order{
+
+        private final String customerName;
+        private final String productName;
+
+        setProduct(String productName) : EntityStatus
+        setCustomer(String customerName) : EntityStatus
+
+    }
+
+    Entity <|.. Order
+    Entity <|.. Customer
+    Entity <|.. Product
+
+@enduml
