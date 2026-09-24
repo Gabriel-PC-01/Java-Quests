@@ -4,88 +4,105 @@
 
 
 
-#### Entity
-
-assinatura :
-
-​	abstract class Entity
-
-métodos:
-
-​	getFields() : final HashMap;
-
-​	toRegister() : final String
-
-atributos:
-
-​	protected final String type;
+## Entities
 
 
 
-#### Responce
+Entity is a abstraction that hides the real entity of controller and DAO. The classes Customer, Product and Order inherit Entity and implements your own get fields.
 
 
 
-assinatura :
+### Entity
 
-​	record Responce
+**methods**:
 
-atributos:
-
-​	enum ResponceStatus
-
-​	String menssage
-
-​	Object source
+```java
+Map getFields()
+```
 
 
 
-#### ResponceStatus
 
-assinatura :
 
-​	enum ResponceStatus
+**attributes**:
 
-atributos :
-
-​	ALREADY_EXISTS
-
-​	OK
-
-​	NOT_FOUND
+```java
+	protected final String type;
+```
 
 
 
-#### Repository
 
 
 
-assinatura :
 
-​	class Repository <T extends Entity>
 
-métodos :
+### Customer
 
-​	searchEntity(Entity anEntity) : final Responce
+**methods**:
 
-​	addEntity(Entity anEntity) : final Responce
+```java
+	EntityStatus setName(String name)
 
-​	replaceEntityData(Entity anEntity) : final Responce
-
-​	private toRegister(Entity anEntity) : String
+	EntityStatus setEmail(String email)
+```
 
 
 
-#### Data manipulate
-
-assinatura
-
-class DataMainpulate
 
 
+**attributes**:
 
-metodos
+```java
+	private String name
+	private String email
+```
 
-​	writeRegister(String Register, folderPath)
 
-​	readRegister(String Register, folderPath)
+
+
+
+### Product
+
+**methods**:
+
+```java
+	EntityStatus setName(String productName)
+
+	EntityStatus setQuantity(Integer quantity)
+```
+
+
+
+
+
+**attributes**:
+
+```java
+	private Integer quantity
+	private String name
+```
+
+
+
+### Order
+
+**methods**:
+
+```java
+	EntityStatus setCustomerName(String customerName)
+
+	EntityStatus setProductName(String productName)
+```
+
+
+
+
+
+**attributes**:
+
+```java
+	private String productName
+	private String customerName
+```
+
