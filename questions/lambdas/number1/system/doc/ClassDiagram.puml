@@ -1,0 +1,75 @@
+@startuml
+
+
+    class Customer{
+
+        String CustomerName
+        Integer monthsHasCustomer
+        CustomerType type
+        Integer purchasesMade
+
+        
+
+        void Customer(String name) 
+
+
+        CustomerType getCustomerType()
+
+        Integer getPurchacesMade()
+
+        
+
+        CustomerType setCustomerType()
+
+        Integer setPurchacesMade()
+
+        Integer setMonthsHasCustomer(Integer months)
+        
+    }
+
+    class WeightsForDiscount{
+        Double typeWeight
+        Double monthsHasCustomerWeight
+        Double purchaseMadeWeight
+    }
+
+    Interface DiscountFormula{
+        double calculate(WeightsForDiscount)
+    }
+
+    Enum CustomerType{
+
+        FREE,
+        STARDARD,
+        PREMIUM,
+        VIP
+
+        double DefaultWeight()
+    }
+
+
+    class Purchase{
+
+        Customer customer
+        DiscountFormula
+        double price
+      
+        
+
+        Purchase(Customer, price, DicountFormula)
+
+
+        applyDiscount()
+
+
+
+    }
+
+
+    Customer *- CustomerType
+    DiscountFormula -->  WeightsForDiscount
+    Purchase o-- DiscountFormula
+    Purchase o-- Customer
+
+
+@enduml

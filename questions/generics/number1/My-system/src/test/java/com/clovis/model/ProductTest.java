@@ -17,7 +17,7 @@ public class ProductTest {
 
     private Product product;
 
-    
+
     @BeforeEach
     void setup(){
         product = new Product();
